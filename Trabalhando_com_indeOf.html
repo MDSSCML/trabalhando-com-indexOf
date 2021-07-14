@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <title>Adicionando número</title>
+    <style>
+        p {
+            font-size: 5em;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        body {
+            background: linear-gradient(black 100%, red);
+        }
+    </style>
+</head>
+
+<body>
+    <p>Números únicos</p>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 id="ler"></h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h1 id="visor"></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 ">
+                <input type="number" placeholder="Somente números" id="n1" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 d-flex justify-content-end">
+                <button type="button" onclick="apagar()" class="btn btn-danger mt-4 apaga">Apagar</button>
+                <button type="button" onclick="inserir()" class="btn btn-success mt-4 mx-1">Inserir</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let numero = [];
+        let inserir = function () {
+            let n1 = document.getElementById("n1").value;
+            if (n1 === "") {
+                console.log(n1);
+                document.getElementById("visor").style = "color: yellow";
+                document.getElementById("visor").innerHTML = "Por favor, Preencher";
+            } else if (numero.indexOf(n1) === -1) {
+                document.getElementById("visor").style = "color: green";
+                document.getElementById("visor").innerHTML = "Adicionando";
+                numero.push(n1);
+                document.getElementById("ler").innerHTML = numero;
+            } else {
+                document.getElementById("visor").style = "color: red";
+                document.getElementById("visor").innerHTML = "Número duplicado";
+            }
+        }
+        let apagar = function () {
+            $(function () {
+                $(".apaga").click(function () {
+                    $("#visor").empty();
+                    $("#ler").empty();
+                    $("#n1").val("");
+                    numero.splice(0, 100);
+                });
+            });
+
+        }
+    </script>
+</body>
+
+</html>

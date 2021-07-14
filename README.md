@@ -1,1 +1,3 @@
-# trabalhando-com-indexOf
+# trabalhando com indexOf
+
+## precisa do bootstrap e jquery.
