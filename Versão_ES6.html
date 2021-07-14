@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Adicionando número</title>
+    <style>
+        p {
+            font-size: 5em;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        body {
+            background: linear-gradient(black 100%, red);
+        }
+    </style>
+</head>
+
+<body>
+    <p>Números únicos</p>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 id="ler"></h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h1 id="visor"></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 ">
+                <input type="number" placeholder="Somente números" id="n1" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 d-flex justify-content-end">
+                <button type="button" onclick="inserir()" class="btn btn-success mt-4 mx-1">Inserir</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const numero = [];
+        let inserir = () => {
+            let n1 = document.getElementById("n1").value;
+            numero.push(n1);
+            novoValor = [...new Set(numero)];
+            document.getElementById("ler").innerHTML = "Números únicos :" + novoValor + ",";
+            document.getElementById("visor").innerHTML = "Array :" + numero;
+
+        }
+    </script>
+</body>
+
+</html>
